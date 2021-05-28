@@ -23,9 +23,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        echo $GITHUB_REPOSITORY
     - name: Git Clone Action
-#       if: ${{ secrets.IS_CHECK }}
+      if: $GITHUB_REPOSITORY == "yandex-praktikum/hw05_final"
       uses: actions/checkout@v2
       with:
         repository: ${{ secrets.repository }}
