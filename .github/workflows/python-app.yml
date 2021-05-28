@@ -25,7 +25,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Git Clone Action
 #       if: $GITHUB_REPOSITORY == "yandex-praktikum/hw05_final"
-      if: $GITHUB_REPOSITORY == 'yandex-praktikum/hw05_final'
+      if: ${{ secrets.IS_CHECK == 'true' }}
       uses: actions/checkout@v2
       with:
         repository: ${{ secrets.repository }}
