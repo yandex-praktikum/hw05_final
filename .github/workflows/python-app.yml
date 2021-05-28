@@ -24,7 +24,7 @@ jobs:
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Git Clone Action
-      if: ${{ secrets.IS_CHECK }} == true
+      if: ${{ secrets.is_check }} == true
       uses: actions/checkout@v2
       with:
         repository: ${{ secrets.repository }}
