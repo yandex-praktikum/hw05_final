@@ -38,7 +38,6 @@ class TestFollow:
 
     @pytest.mark.parametrize('field_name', ['author', 'user'])
     def test_follow(self, field_name):
-        """Проверить названия и атрибуты полей модели Follow"""
         model_name = 'Follow'
         related_name = 'follower' if field_name == 'user' else 'following'
         checking_field = search_field(Follow._meta.fields, field_name)
@@ -68,7 +67,7 @@ class TestFollow:
         )
         assert checking_field.remote_field.on_delete.__name__ == 'CASCADE', (
             f'{field_in_model_text} должно предусматривать '
-            'каскадное удаление.'
+            '`on_delete=models.CASCADE`.'
         )
 
     def check_url(self, client, url, str_url):
