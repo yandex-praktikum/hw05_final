@@ -112,8 +112,8 @@ class TestFollow:
         self.check_url(user_client, f'/profile/{post.author.username}/follow', '/profile/<username>/follow/')
         assert user.follower.count() == 0, 'Проверьте, что нельзя подписаться на самого себя'
 
-        user_1 = get_user_model().objects.create_user(username='TestUser_2344')
-        user_2 = get_user_model().objects.create_user(username='TestUser_73485')
+        user_1 = get_user_model().objects.create_user(username='TestUser_2344', email='aaaa@aaaa.com')
+        user_2 = get_user_model().objects.create_user(username='TestUser_73485', email='bbbb@aaaa.com')
 
         self.check_url(user_client, f'/profile/{user_1.username}/follow', '/profile/<username>/follow/')
         assert user.follower.count() == 1, 'Проверьте, что вы можете подписаться на пользователя'
